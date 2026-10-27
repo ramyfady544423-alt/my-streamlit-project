@@ -1,6 +1,33 @@
-
+import matplotlib.pyplot as plt
 import streamlit as st
 import pandas as pd
+
+st.markdown("""
+    <style>
+        /* Hide the top header and toolbar */
+        header[data-testid="stHeader"] {
+            display: none;
+        }
+
+        /* Hide the Deploy button */
+        .stDeployButton {
+            display: none;
+        }
+
+        /* Hide the top-right menu */
+        #MainMenu {
+            visibility: hidden;
+        }
+
+        /* Hide the footer */
+        footer {
+            visibility: hidden;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+st.title("My Streamlit App")
+
 first = int(st.query_params.get("group", "1"))
 second = int(st.query_params.get("property", "1"))
 # ==========================================
@@ -193,15 +220,27 @@ def showchart(group_choice, property_choice):
     st.title("Periodic Table Properties")
     st.subheader(groups[group_choice])
     st.write("Property:", options[property_choice])
+    fig, ax = plt.subplots(figsize=(10, 5))
 
-    # Display the bar chart
-    st.line_chart(
-        df,
-        x="Element",
-        y="Value",
-        x_label="Element",
-        y_label=options[property_choice]
-    )
+    ax.plot(df["Element"], df["Value"], marker="o")
+
+    ax.set_xlabel("Element")
+    ax.set_ylabel(options[property_choice])
+    ax.set_title(options[property_choice] + " by Element")
+
+    # Keep the original order of elements
+    ax.tick_params(axis="x", labelrotation=45)
+
+    # Prevent labels from being cut off
+    fig.tight_layout()
+
+    # Display a static chart without interactive zooming or scrolling
+    st.pyplot(fig)
+
+    plt.close(fig)
+
+        # Display the bar chart
+   
 
     # Display the values underneath the chart
     st.subheader("Element Data")

@@ -8,7 +8,9 @@ st.markdown("""
         header[data-testid="stHeader"] {
             display: none;
         }
-
+        [data-testid="stAppDeployButton"] {
+            display: none;
+        }
         /* Hide the Deploy button */
         .stDeployButton {
             display: none;

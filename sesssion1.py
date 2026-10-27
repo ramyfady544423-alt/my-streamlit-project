@@ -26,7 +26,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title("My Streamlit App")
+
 
 first = int(st.query_params.get("group", "1"))
 second = int(st.query_params.get("property", "1"))
@@ -217,7 +217,7 @@ def showchart(group_choice, property_choice):
     )
 
     # Display chart title
-    st.title("Periodic Table Properties")
+   
     st.subheader(groups[group_choice])
     st.write("Property:", options[property_choice])
     fig, ax = plt.subplots(figsize=(10, 5))

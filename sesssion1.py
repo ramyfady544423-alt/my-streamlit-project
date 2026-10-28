@@ -29,6 +29,59 @@ st.markdown("""
 .stApp {
         background-color:#071426;
     }
+    
+.stApp {
+    background-color: #071426;
+    color: white;
+}
+
+/* Make all text white */
+.stApp,
+.stApp p,
+.stApp span,
+.stApp label,
+.stApp h1,
+.stApp h2,
+.stApp h3,
+.stApp h4,
+.stApp h5,
+.stApp h6,
+.stApp li,
+.stApp div,
+.stApp small,
+.stMarkdown,
+.stMarkdown p,
+.stMarkdown span,
+[data-testid="stCaptionContainer"],
+[data-testid="stMetricLabel"],
+[data-testid="stMetricValue"] {
+    color: white !important;
+}
+
+/* Dataframe text */
+[data-testid="stDataFrame"] {
+    color: white !important;
+}
+
+/* Table headers and cells */
+[data-testid="stDataFrame"] th,
+[data-testid="stDataFrame"] td {
+    color: white !important;
+}
+
+/* Dropdown and selectbox text */
+.stSelectbox div,
+.stSelectbox span,
+.stSelectbox input {
+    color: white !important;
+}
+
+/* Input fields */
+.stTextInput input,
+.stNumberInput input,
+.stTextArea textarea {
+    color: white !important;
+}
 
     </style>
 """, unsafe_allow_html=True)

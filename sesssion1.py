@@ -25,6 +25,11 @@ st.markdown("""
         footer {
             visibility: hidden;
         }
+        
+.stApp {
+        background-color:#071426;
+    }
+
     </style>
 """, unsafe_allow_html=True)
 
